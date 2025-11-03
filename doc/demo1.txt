@@ -1,0 +1,134 @@
+*****************************************
+*        L I G A S    P A D D L E       *
+*****************************************
+ 1. Listar equipos ligas
+ 2. Mostrar tabla resultados de una liga
+ 3. Listar campeones ligas
+ 4. Anotar marcadores partido a una liga
+ 0. Salir de la aplicación
+*****************************************
+Opción: 1
+Ligas disponibles:
+1. A       2. B       3. C       4. D
+Número liga: 1
+Equipos de la liga:
+1. A1      2. A2      3. A3      4. A4
+*****************************************
+*        L I G A S    P A D D L E       *
+*****************************************
+ 1. Listar equipos ligas
+ 2. Mostrar tabla resultados de una liga
+ 3. Listar campeones ligas
+ 4. Anotar marcadores partido a una liga
+ 0. Salir de la aplicación
+*****************************************
+Opción: 2
+1. A       2. B       3. C       4. D
+Número de liga (1-4): 1
+Resultados actuales de la liga A:
+-------------------------
+| XXX | 1-6 |     | 6-1 |
+| XXX | 1-6 |     | 6-3 |
+| XXX |     |     |     |
+-------------------------
+| 5-7 | XXX |     |     |
+| 4-6 | XXX |     |     |
+|     | XXX |     |     |
+-------------------------
+|     | 1-6 | XXX | 5-7 |
+|     | 6-1 | XXX | 1-6 |
+|     | 1-6 | XXX |     |
+-------------------------
+|     | 0-6 |     | XXX |
+|     | 7-5 |     | XXX |
+|     | 1-6 |     | XXX |
+-------------------------
+
+*****************************************
+*        L I G A S    P A D D L E       *
+*****************************************
+ 1. Listar equipos ligas
+ 2. Mostrar tabla resultados de una liga
+ 3. Listar campeones ligas
+ 4. Anotar marcadores partido a una liga
+ 0. Salir de la aplicación
+*****************************************
+Opción: 3
+   1. A        A2
+   2. B        B4
+   3. C        C3
+   4. D        D1
+
+*****************************************
+*        L I G A S    P A D D L E       *
+*****************************************
+ 1. Listar equipos ligas
+ 2. Mostrar tabla resultados de una liga
+ 3. Listar campeones ligas
+ 4. Anotar marcadores partido a una liga
+ 0. Salir de la aplicación
+*****************************************
+Opción: 4
+1. A       2. B       3. C       4. D
+Número de liga (1-4): 2
+Equipos de la liga:
+1. B1      2. B2      3. B3      4. B4
+Resultados actuales de la liga B:
+-------------------------
+| XXX |     |     | 3-6 |
+| XXX |     |     | 5-7 |
+| XXX |     |     |     |
+-------------------------
+| 6-4 | XXX |     |     |
+| 6-2 | XXX |     |     |
+|     | XXX |     |     |
+-------------------------
+|     |     | XXX | 5-7 |
+|     |     | XXX | 6-3 |
+|     |     | XXX | 0-6 |
+-------------------------
+| 6-0 | 1-6 |     | XXX |
+| 6-2 | 2-6 |     | XXX |
+|     |     |     | XXX |
+-------------------------
+
+Selecciona el número de los dos equipos del partido:
+Número equipo fila    (1-4): 1
+Número equipo columna (1-4): 2
+	Marcador 1 equipo B1  : 1
+	Marcador 1 equipo B2  : 6
+	Marcador 2 equipo B1  : 1
+	Marcador 2 equipo B2  : 6
+	Marcador 3 equipo B1  : 0
+	Marcador 3 equipo B2  : 0
+Resultados actuales de la liga B:
+-------------------------
+| XXX | 1-6 |     | 3-6 |
+| XXX | 1-6 |     | 5-7 |
+| XXX |     |     |     |
+-------------------------
+| 6-4 | XXX |     |     |
+| 6-2 | XXX |     |     |
+|     | XXX |     |     |
+-------------------------
+|     |     | XXX | 5-7 |
+|     |     | XXX | 6-3 |
+|     |     | XXX | 0-6 |
+-------------------------
+| 6-0 | 1-6 |     | XXX |
+| 6-2 | 2-6 |     | XXX |
+|     |     |     | XXX |
+-------------------------
+
+Desea modificar otro marcador (s/n): n
+*****************************************
+*        L I G A S    P A D D L E       *
+*****************************************
+ 1. Listar equipos ligas
+ 2. Mostrar tabla resultados de una liga
+ 3. Listar campeones ligas
+ 4. Anotar marcadores partido a una liga
+ 0. Salir de la aplicación
+*****************************************
+Opción: 0
+Saliendo...

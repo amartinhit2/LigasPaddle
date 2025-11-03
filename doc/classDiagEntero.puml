@@ -1,0 +1,153 @@
+@startuml
+class PartidosLiga {
+- Partido partido12
+- Partido partido13
+- Partido partido14
+- Partido partido21
+- Partido partido23
+- Partido partido24
+- Partido partido31
+- Partido partido32
+- Partido partido34
+- Partido partido41
+- Partido partido42
+- Partido partido43
++ <<Create>> PartidosLiga(String,String,String,String)
++ Partido getPartido(int,int)
++ int partidosGanados(String)
++ String getTextoMarcadorPartido(int,int,int)
++ void setMarcadorPartido(int,int,int,int,int)
+}
+
+
+class Utils {
++ {static} String getSubcadena(String,char,int)
++ {static} int contarSubcadenas(String,char)
+- {static} int buscaIdxSeparador(String,char,int)
++ {static} void main(String[])
+}
+
+class Init {
+- {static} char SEP
+- {static} String NOMBRES_LIGAS
+- {static} String EQUIPOS_LIGA_1
+- {static} String EQUIPOS_LIGA_2
+- {static} String EQUIPOS_LIGA_3
+- {static} String EQUIPOS_LIGA_4
+- {static} GestorLigas gestorLigas
++ {static} void crearLigas(GestorLigas)
+- {static} int getNumeroLigas()
+- {static} int getNumeroPartidosPorLiga()
+- {static} String getNombreLiga(int)
+- {static} String getEquipoLiga(int,int)
+- {static} void randomMarcadores(int,int)
+- {static} void randomMarcadores(int,int,int)
+}
+
+
+class Main {
++ {static} void main(String[])
+}
+
+class Liga {
+- String nombreLiga
+- String equipo1
+- String equipo2
+- String equipo3
+- String equipo4
+- PartidosLiga partidosLiga
++ <<Create>> Liga(String,String,String,String,String)
++ String getNombreLiga()
++ String getEquipo(int)
++ String getMarcadorPartido(int,int,int)
++ String getEquipoCampeon()
++ void setMarcadorPartido(int,int,int,int,int)
+}
+
+
+class Marcador {
+- int v1
+- int v2
++ <<Create>> Marcador()
++ <<Create>> Marcador(int,int)
++ int getV1()
++ void setV1(int)
++ int getV2()
++ void setV2(int)
++ void setV1V2(int,int)
++ int getGanador()
++ String toString()
+}
+
+
+class App {
+- GestorLigas gestorLigas
++ <<Create>> App()
++ void run()
+- void ejecutarOpcion(int)
+- void listarEquiposLigas()
+- void listarCampeonesLigas()
+- void mostrarTablaResultadosLiga()
+- void mostrarTablaResultadosLiga(int)
+- void anotarMarcadoresLiga()
+- void salir()
+- void opcionNoValida()
+}
+
+
+class Partido {
+- String equipo1
+- String equipo2
+- Marcador marcador1
+- Marcador marcador2
+- Marcador marcador3
++ <<Create>> Partido()
++ <<Create>> Partido(String,String)
++ String getEquipo(int)
++ Marcador getMarcador(int)
++ int getGanador()
++ void setMarcadorPartido(int,int,int)
++ String getTextoMarcador(int)
+}
+
+
+class Gui {
++ {static} void mostrarMenu()
++ {static} int leerNumero(String)
++ {static} void mostrarTexto(String)
++ {static} boolean confirmar(String,String)
+}
+
+class GestorLigas {
+- Liga liga1
+- Liga liga2
+- Liga liga3
+- Liga liga4
++ void crearLiga(int,String,String,String,String,String)
++ Liga getLiga(int)
++ String getNombreLiga(int)
++ String getEquipo(int,int)
++ void setMarcadorPartido(int,int,int,int,int,int)
++ String getListaLigas()
++ String getListaEquipos(int)
++ String getListadoCampeonesLigas()
++ String getTablaResultadosLiga(int)
+}
+
+Main ..> App
+App --> GestorLigas
+App .right.> Gui
+App .left.> Init
+
+Init .left.>Utils
+Init ..>GestorLigas
+
+GestorLigas *-down-> Liga
+
+Liga -right-> PartidosLiga
+
+PartidosLiga *-> Partido
+
+Partido *-> Marcador
+
+@enduml

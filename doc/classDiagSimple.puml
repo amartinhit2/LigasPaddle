@@ -1,0 +1,29 @@
+@startuml
+
+class App
+class GestorLigas
+class Gui
+class Init
+class Liga
+class Main
+class Marcador
+class Partido
+class PartidosLiga
+class Utils
+
+Main ..> App
+App --> GestorLigas
+App .right.> Gui
+App .left.> Init
+
+Init .left.>Utils
+Init ..>GestorLigas
+
+GestorLigas *-down-> Liga
+
+Liga -right-> PartidosLiga
+
+PartidosLiga *-> Partido
+
+Partido *-> Marcador
+@enduml
