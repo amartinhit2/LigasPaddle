@@ -20,11 +20,11 @@ public class Partido {
      */
     public Partido() {
         // TODO 51: Instancia todos los atributos. Da a equipo1 el valor "E1" y a equipo2 el valor "E2".
-
-
-
-
-
+        this.equipo1 = "E1";
+        this.equipo2 = "E2";
+        this.marcador1 = new Marcador();
+        this.marcador2 = new Marcador();
+        this.marcador3 = new Marcador();
     }
 
     /**
@@ -34,11 +34,11 @@ public class Partido {
      */
     public Partido(String equipo1, String equipo2) {
         // TODO 52: Instancia todos los atributos adecuadamente.
-
-
-
-
-
+        this.equipo1 = equipo1;
+        this.equipo2 = equipo2;
+        this.marcador1 = new Marcador();
+        this.marcador2 = new Marcador();
+        this.marcador3 = new Marcador();
     }
 
     /**
@@ -48,12 +48,11 @@ public class Partido {
      */
     public String getEquipo(int i) {
         // TODO 53: Devuelve el nombre del equipo i-ésimo o cadena vacía (utiliza if-else-if-else)
-
-
-
-
-
-
+        if (i == 1){
+            return equipo1;
+        } else if (i == 2) {
+            return equipo2;
+        }
         return "";
     }
 
@@ -64,12 +63,17 @@ public class Partido {
      */
     public Marcador getMarcador(int i) {
         // TODO 54: Devuelve el marcador i-ésimo o null (utiliza switch)
+        switch (i){
+            case 1:
+                return marcador1;
+            case 2:
+                return marcador2;
+            case 3:
+                return marcador3;
+            default:
+                return null;
+        }
 
-
-
-
-
-        return null;
     }
 
     /**
