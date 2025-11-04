@@ -1,5 +1,7 @@
 package edu.masanz.da.lp;
 
+import java.util.Scanner;
+
 /**
  * Clase principal para ejecutar la aplicación de gestión de ligas de paddle.
  * Utiliza la clase GestorLigas para gestionar las ligas y la clase Gui para la interacción con el usuario.
@@ -13,7 +15,8 @@ public class App {
      */
     public App() {
         // TODO 11: instancia el GestorLigas e inicializa las ligas utilizando la clase Init
-
+        GestorLigas gestorLigas = new GestorLigas();
+        Init.crearLigas(gestorLigas);
 
     }
 
@@ -22,13 +25,12 @@ public class App {
      */
     public void run() {
         // TODO 12: en un bucle muestra el menú, lee la opción y ejecuta la opción hasta que se elija salir.
-
-
-
-
-
-
-
+        while (true){
+            Gui.mostrarMenu();
+            String texto = "";
+            int num = Gui.leerNumero(texto);
+            ejecutarOpcion(num);
+        }
 
     }
 
@@ -39,25 +41,23 @@ public class App {
     private void ejecutarOpcion(int numOpc) {
         // TODO 13: implementa la ejecución de las opciones del menú utilizando un switch.
         // Llama a los métodos correspondientes para cada opción.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        switch (numOpc){
+            case 1:
+                listarEquiposLigas();
+                break;
+            case 2:
+                mostrarTablaResultadosLiga();
+                break;
+            case 3:
+                listarCampeonesLigas();
+                break;
+            case 4:
+                gestorLigas.setMarcadorPartido(1,1,2,3,5,2);
+                break;
+            case 0:
+                salir();
+                System.exit(0);
+        }
 
     }
 
@@ -66,11 +66,9 @@ public class App {
      */
     private void listarEquiposLigas() {
         // TODO 14: muestra la lista de ligas, lee el número de liga y muestra la lista de equipos de la liga seleccionada.
-
-
-
-
-
+        int numeroliga = Gui.leerNumero(gestorLigas.getListaLigas());
+        System.out.printf(gestorLigas.getListaLigas());
+        gestorLigas.getLiga(numeroliga);
     }
 
     /**
@@ -78,7 +76,7 @@ public class App {
      */
     private void listarCampeonesLigas() {
         // TODO 15: muestra el listado de campeones de todas las ligas.
-
+        gestorLigas.getListadoCampeonesLigas();
 
     }
 
@@ -87,7 +85,7 @@ public class App {
      */
     private void mostrarTablaResultadosLiga() {
         // TODO 16: muestra la lista de ligas, lee el número de liga y muestra la tabla de resultados de la liga seleccionada.
-
+        gestorLigas.getTablaResultadosLiga(1);
 
 
     }

@@ -7,7 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
         // TODO 01: instancia la clase App y llama al método run.
-
+        App app = new App();
+        app.run();
 
     }
 

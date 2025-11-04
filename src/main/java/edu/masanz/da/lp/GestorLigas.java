@@ -24,22 +24,6 @@ public class GestorLigas {
     public void crearLiga(int numLiga, String nombreLiga, String equipo1, String equipo2, String equipo3, String equipo4) {
         // TODO 21: instancia una nueva liga y asígnala al atributo correspondiente.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     /**
@@ -106,7 +90,8 @@ public class GestorLigas {
     public String getListaLigas() {
         // TODO 26: devuelve una lista formateada de las ligas disponibles.
         // Ej. 1. A       2. B       3. C       4. D
-        String s = "";
+        String s = "1.A   2.B  3.C";
+
 
 
 

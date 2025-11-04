@@ -68,10 +68,10 @@ public class Gui {
      * Elimina espacios a los lados de la respuesta.
      * @param txt Texto que se muestra en la misma línea.
      */
-//    public static String leerTexto(String txt) {
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print(txt);
-//        return scanner.nextLine().trim();
-//    }
+    public static String leerTexto(String txt) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(txt);
+        return scanner.nextLine().trim();
+    }
 
 }
