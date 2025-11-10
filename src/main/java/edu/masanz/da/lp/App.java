@@ -15,7 +15,7 @@ public class App {
      */
     public App() {
         // TODO 11: instancia el GestorLigas e inicializa las ligas utilizando la clase Init
-        GestorLigas gestorLigas = new GestorLigas();
+        gestorLigas = new GestorLigas();
         Init.crearLigas(gestorLigas);
 
     }
@@ -52,7 +52,7 @@ public class App {
                 listarCampeonesLigas();
                 break;
             case 4:
-                gestorLigas.setMarcadorPartido(1,1,2,3,5,2);
+                anotarMarcadoresLiga();
                 break;
             case 0:
                 salir();
@@ -66,9 +66,11 @@ public class App {
      */
     private void listarEquiposLigas() {
         // TODO 14: muestra la lista de ligas, lee el número de liga y muestra la lista de equipos de la liga seleccionada.
-        int numeroliga = Gui.leerNumero(gestorLigas.getListaLigas());
-        System.out.printf(gestorLigas.getListaLigas());
-        gestorLigas.getLiga(numeroliga);
+        Gui.mostrarTexto("Ligas Disponibles");
+        Gui.mostrarTexto(gestorLigas.getListaLigas());
+        int numliga = Gui.leerNumero("Numero liga: ");
+        Gui.mostrarTexto("Equipos de la liga");
+        Gui.mostrarTexto(gestorLigas.getListaEquipos(numliga));
     }
 
     /**
@@ -76,8 +78,7 @@ public class App {
      */
     private void listarCampeonesLigas() {
         // TODO 15: muestra el listado de campeones de todas las ligas.
-        gestorLigas.getListadoCampeonesLigas();
-
+        Gui.mostrarTexto(gestorLigas.getListadoCampeonesLigas());
     }
 
     /**
@@ -85,9 +86,10 @@ public class App {
      */
     private void mostrarTablaResultadosLiga() {
         // TODO 16: muestra la lista de ligas, lee el número de liga y muestra la tabla de resultados de la liga seleccionada.
-        gestorLigas.getTablaResultadosLiga(1);
-
-
+        Gui.mostrarTexto("Elige una liga");
+        Gui.mostrarTexto(gestorLigas.getListaLigas());
+        int numliga = Gui.leerNumero("Numero liga: ");
+        mostrarTablaResultadosLiga(numliga);
     }
 
     /**
@@ -96,9 +98,7 @@ public class App {
      */
     private void mostrarTablaResultadosLiga(int numLiga) {
         // TODO 17: muestra la tabla de resultados de la liga indicada.
-
-
-
+        Gui.mostrarTexto(gestorLigas.getTablaResultadosLiga(numLiga));
     }
 
     /**
@@ -110,23 +110,24 @@ public class App {
         // permite al usuario seleccionar dos equipos y anotar los marcadores de sus partidos.
         // Muestra la tabla de resultados antes y después de anotar los marcadores.
         // Permite repetir el proceso hasta que el usuario decida salir.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        Gui.mostrarTexto(gestorLigas.getListaLigas());
+        int numLiga = Gui.leerNumero("Elige una liga");
+        Gui.mostrarTexto("Equipos de la liga");
+        Gui.mostrarTexto(gestorLigas.getListaEquipos(numLiga));
+        boolean continuar = true;
+        while (continuar) {
+            mostrarTablaResultadosLiga(numLiga);
+            Gui.mostrarTexto("Selecciona el número de los dos equipos del partido:");
+            int equipo1 = Gui.leerNumero("Número equipo fila    (1-4): ");
+            int equipo2 = Gui.leerNumero("Número equipo columna (1-4): ");
+            for (int k = 1; k <= 3; k++) {
+                int v1 = Gui.leerNumero(String.format("\tMarcador %d equipo %-4s: ", k, gestorLigas.getEquipo(numLiga, equipo1)));
+                int v2 = Gui.leerNumero(String.format("\tMarcador %d equipo %-4s: ", k, gestorLigas.getEquipo(numLiga, equipo2)));
+                gestorLigas.setMarcadorPartido(numLiga, equipo1, equipo2, k, v1, v2);
+            }
+            mostrarTablaResultadosLiga(numLiga);
+            continuar = Gui.confirmar("Desea modificar otro marcador (s/n): ", "s");
+        }
 
     }
 

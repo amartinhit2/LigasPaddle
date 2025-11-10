@@ -83,25 +83,24 @@ public class Partido {
     public int getGanador() {
         // TODO 55: Devuelve el número del equipo ganador en base a los marcadores
         // Utiliza getMarcador y getGanador de la clase Marcador
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        return 0;
+        int juegosEquipo1 = 0;
+        int juegosEquipo2 = 0;
+        for (int i = 1; i <= 3; i++) {
+            Marcador marcador = getMarcador(i);
+            if (marcador.getGanador() == 1){
+                juegosEquipo1++;
+            }
+            if (marcador.getGanador() == 2){
+                juegosEquipo2++;
+            }
+        }
+        if (juegosEquipo1 > juegosEquipo2){
+            return 1;
+        } else if (juegosEquipo2 > juegosEquipo1) {
+            return 2;
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -112,7 +111,7 @@ public class Partido {
      */
     public void setMarcadorPartido(int numMarcador, int v1, int v2) {
         // TODO 56: Fija los valores del marcador indicado
-
+        getMarcador(numMarcador).setV1V2(v1,v2);
     }
 
     /**
@@ -124,12 +123,12 @@ public class Partido {
     public String getTextoMarcador(int numMarcador) {
         // TODO 57: Devuelve la representación textual del marcador
         // Si el resultado era 0-0 sebe devolver una cadena vacía de tres espacios: "   "
-
-
-
-
-
-        return "   ";
+        Marcador marcador = getMarcador(numMarcador);
+        if (marcador.getV1() != 0 || marcador.getV2() != 0) {
+            return marcador.toString();
+        }else {
+            return " ".repeat(3);
+        }
     }
 
 }

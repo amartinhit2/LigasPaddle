@@ -29,6 +29,7 @@ public class Liga {
         this.equipo2 = equipo2;
         this.equipo3 = equipo3;
         this.equipo4 = equipo4;
+        this.partidosLiga = new PartidosLiga(equipo1, equipo2, equipo3, equipo4);
     }
 
     /**
@@ -37,7 +38,7 @@ public class Liga {
      */
     public String getNombreLiga() {
         // TODO 32: Devuelve el nombre de la liga
-        return "";
+        return nombreLiga;
     }
 
     /**
@@ -47,18 +48,18 @@ public class Liga {
      */
     public String getEquipo(int i) {
         // TODO 33: Devuelve el nombre del equipo correspondiente o sino cadena vacía
-
-
-
-
-
-
-
-
-
-
-
-        return "";
+        switch (i){
+            case 1:
+                return equipo1;
+            case 2:
+                return equipo2;
+            case 3:
+                return equipo3;
+            case 4:
+                return equipo4;
+            default:
+                return null;
+        }
     }
 
     /**
@@ -70,7 +71,8 @@ public class Liga {
      */
     public String getMarcadorPartido(int k, int i, int j) {
         // TODO 34: Devuelve el marcador k del partido entre el equipo i y j
-        return "0-0";
+        return partidosLiga.getTextoMarcadorPartido(k,i,j);
+
     }
 
     /**
@@ -81,19 +83,19 @@ public class Liga {
     public String getEquipoCampeon() {
         // TODO 35: Devuelve el nombre del o de los campeones de la liga
         String nombreCampeon = "";
-
-
-
-
-
-
-
-
-
-
-
-
-
+        String equipo = "";
+        int numPartidosGanadosMax = -1;
+        int numPartidosGanados = 0;
+        for (int i = 1; i <= 4; i++) {
+            equipo = getEquipo(i);
+            numPartidosGanados = partidosLiga.partidosGanados(equipo);
+            if (numPartidosGanados > numPartidosGanadosMax) {
+                numPartidosGanadosMax = numPartidosGanados;
+                nombreCampeon = equipo;
+            }else if (numPartidosGanados == numPartidosGanadosMax) {
+                nombreCampeon += " " + equipo;
+            }
+        }
         return nombreCampeon;
     }
 
@@ -108,6 +110,7 @@ public class Liga {
      */
     public void setMarcadorPartido(int numEquipo1, int numEquipo2, int numMarcador, int v1, int v2) {
         // TODO 36: Fija los valores del marcador del encuentro entre los equipos
+        partidosLiga.setMarcadorPartido(numEquipo1,numEquipo2,numMarcador,v1,v2);
 
     }
 }

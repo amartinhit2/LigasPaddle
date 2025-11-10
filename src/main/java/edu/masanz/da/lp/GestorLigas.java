@@ -23,7 +23,23 @@ public class GestorLigas {
      */
     public void crearLiga(int numLiga, String nombreLiga, String equipo1, String equipo2, String equipo3, String equipo4) {
         // TODO 21: instancia una nueva liga y asígnala al atributo correspondiente.
-
+        Liga nuevaliga = new Liga(nombreLiga,equipo1,equipo2,equipo3,equipo4);
+        switch (numLiga){
+            case 1:
+                liga1 = nuevaliga;
+                break;
+            case 2:
+                liga2 = nuevaliga;
+                break;
+            case 3:
+                liga3 = nuevaliga;
+                break;
+            case 4:
+                liga4 = nuevaliga;
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -33,18 +49,18 @@ public class GestorLigas {
      */
     public Liga getLiga(int numLiga) {
         // TODO 22: devuelve la liga correspondiente al número proporcionado.
-
-
-
-
-
-
-
-
-
-
-
-        return null;
+        switch (numLiga){
+            case 1:
+                return liga1;
+            case 2:
+                return liga2;
+            case 3:
+                return liga3;
+            case 4:
+                return liga4;
+            default:
+                return null;
+        }
     }
 
     /**
@@ -54,7 +70,7 @@ public class GestorLigas {
      */
     public String getNombreLiga(int numLiga) {
         // TODO 23: devuelve el nombre de la liga correspondiente al número proporcionado.
-        return "";
+        return getLiga(numLiga).getNombreLiga();
     }
 
     /**
@@ -65,8 +81,8 @@ public class GestorLigas {
      */
     public String getEquipo(int numLiga, int numEquipo) {
         // TODO 24: devuelve el nombre del equipo correspondiente al número de liga y número de equipo proporcionados.
-
-        return "";
+        Liga liga = getLiga(numLiga);
+        return liga.getEquipo(numEquipo);
     }
 
     /**
@@ -80,7 +96,7 @@ public class GestorLigas {
      */
     public void setMarcadorPartido(int numLiga, int numEquipo1, int numEquipo2, int numMarcador, int v1, int v2) {
         // TODO 25: establece el marcador de un partido entre dos equipos en una liga específica.
-
+        getLiga(numLiga).setMarcadorPartido(numEquipo1,numEquipo2,numMarcador,v1,v2);
     }
 
     /**
@@ -90,11 +106,10 @@ public class GestorLigas {
     public String getListaLigas() {
         // TODO 26: devuelve una lista formateada de las ligas disponibles.
         // Ej. 1. A       2. B       3. C       4. D
-        String s = "1.A   2.B  3.C";
-
-
-
-
+        String s = "";
+        for (int i = 1; i <= 4; i++) {
+            System.out.printf("%d. %-8s", i, getLiga(i).getNombreLiga());
+        }
         return s;
     }
 
@@ -107,9 +122,9 @@ public class GestorLigas {
         // TODO 27: devuelve una lista formateada de los equipos de una liga específica.
         // EJ. 1. A1      2. A2      3. A3      4. A4
         String s = "";
-
-
-
+        for (int i = 1; i <= 4 ; i++) {
+            System.out.printf("%d. %-8s", i, getLiga(numLiga).getEquipo(i));
+        }
         return s;
     }
 
@@ -126,10 +141,10 @@ public class GestorLigas {
         //        4. D        D1
         //
         String txt = "";
-
-
-
-
+        for (int i = 1; i <= 4 ; i++) {
+            Liga liga = getLiga(i);
+            System.out.printf("%4d. %-8s %-8s\n", i, liga.getNombreLiga(), liga.getEquipoCampeon());
+        }
         return txt;
     }
 
@@ -160,18 +175,22 @@ public class GestorLigas {
         // -------------------------
         //
 
+        Liga liga = getLiga(numLiga);
+        String txt = "-".repeat(4*6+1) + "\n";
+        for (int i = 1; i <= 4; i++) {
+            for (int k = 1; k <= 3; k++) {
+                txt += "|";
+                for (int j = 1; j <= 4; j++) {
+                    txt += " " + liga.getMarcadorPartido(k, i, j) + " |";
+                }
+                txt += "\n";
+            }
+            txt += "-".repeat(4*6+1) + "\n";
+        }
+        return txt;
 
 
 
-
-
-
-
-
-
-
-
-        return "X";
     }
 
 }
